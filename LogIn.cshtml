@@ -1,0 +1,34 @@
+﻿@page
+@model testWeb.Pages.LogInModel
+@{
+}
+
+<p>@Model.test</p>
+@if(Model.verified != null)
+            {
+                <p>@Model.verified</p>
+            }
+@if(Model.notVerified != null)
+            {
+                <p>@Model.notVerified</p><br />
+                <a href="/ConfirmEmail">send new email</a>
+            }
+<div class="text-center">
+    <h1>Log in</h1>
+</div>
+@if(Model.errorMsg != null)
+            {
+    <p>@Model.errorMsg</p>
+            }
+<div>
+    <form method="post">
+        <label>Username</label>
+        <input type="text" id="username" name="username" /><br />
+        <label>Password</label>
+        <input type="password" id="password" name="password" /><br />
+        <input type="submit" value="Log In" /><br />
+        
+    </form>
+    <a asp-page="/ResetPassword">Forgot password ?</a>
+    <button type="button" class="btn btn-cta"><a asp-page="/Index">Back to register</a></button>
+</div>
